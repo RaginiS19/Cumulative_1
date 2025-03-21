@@ -1,0 +1,31 @@
+﻿@model List<CumulativeProject.Models.Teacher>
+
+@{
+    Layout = null;  // This disables the layout
+}
+
+<h2>Teachers List</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model)
+        {
+            <tr>
+                <td>@teacher.id</td>
+                <td>@teacher.name</td>
+                <td>@teacher.course</td>
+                <td>@teacher.salary.ToString("C")</td>
+                <td><a href="/Teacher/Show/@teacher.id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
