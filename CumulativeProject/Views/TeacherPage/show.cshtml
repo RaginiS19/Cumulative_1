@@ -1,21 +1,21 @@
 ﻿@model CumulativeProject.Models.Teacher
 
-<h2>Teacher Details</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">Teacher Details</h2>
 
-@{
-    Layout = null;  // This disables the layout
-}
+    @if (Model != null)
+    {
+        <div class="card p-3 shadow-sm">
+            <p><strong>ID:</strong> @Model.id</p>
+            <p><strong>Name:</strong> @Model.name</p>
+            <p><strong>Course:</strong> @Model.course</p>
+            <p><strong>Salary:</strong> <span class="text-success fw-bold">$@Model.salary</span></p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">Teacher not found.</div>
+    }
 
-@if (Model != null)
-{
-    <p><strong>ID:</strong> @Model.id</p>
-    <p><strong>Name:</strong> @Model.name</p>
-    <p><strong>Course:</strong> @Model.course</p>
-    <p><strong>Salary:</strong> @Model.salary.ToString("C")</p>
-}
-else
-{
-    <p>Teacher not found.</p>
-}
-
-<a href="/TeacherPage/List">Back to List</a>
+    <a href="/TeacherPage/List" class="btn btn-primary mt-3">Back to List</a>
+</div>
