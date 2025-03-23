@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CumulativeProject.Controllers
 {
-/// <summary>
+    /// <summary>
     /// MVC Controller for handling course-related web pages.
     /// </summary>
     public class CoursePageController : Controller
