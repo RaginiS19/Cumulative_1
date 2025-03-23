@@ -5,12 +5,17 @@ using System.Collections.Generic;
 
 namespace CumulativeProject.Controllers
 {
+    /// <summary>
+    /// API Controller for handling student-related operations.
+    /// </summary>
     [ApiController]
     [Route("api/StudentAPI")]
     public class StudentAPIController : Controller
     {
         private readonly SchoolDbContext _context = new SchoolDbContext();
-
+        /// <summary>
+        /// Retrieves all students from the database.
+        /// </summary>
         // GET: api/StudentAPI/GetAllStudents
         [HttpGet("GetAllStudents")]
         public IEnumerable<Student> GetAllStudents()
@@ -42,7 +47,9 @@ namespace CumulativeProject.Controllers
 
             return students;
         }
-
+        /// <summary>
+        /// Retrieves a specific student by their ID.
+        /// </summary>
         // GET: api/StudentAPI/GetStudentById/{id}
         [HttpGet("GetStudentById/{id}")]
         public ActionResult<Student> GetStudentById(int id)
