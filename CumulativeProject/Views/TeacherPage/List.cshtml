@@ -12,8 +12,9 @@ else
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Course</th>
+                <th>Full Name</th>
+                <th>Employee Number</th>
+                <th>Hire Date</th>
                 <th>Salary</th>
                 <th>Actions</th>
             </tr>
@@ -22,11 +23,12 @@ else
             @foreach (var teacher in Model)
             {
                 <tr>
-                    <td>@teacher.id</td>
-                    <td>@teacher.name</td>
-                    <td>@teacher.course</td>
-                    <td>$@teacher.salary</td>
-                    <td><a href="/TeacherPage/Show/@teacher.id" class="btn btn-primary btn-sm">View</a></td>
+                    <td>@teacher.TeacherId</td>
+                    <td>@teacher.TeacherFName @teacher.TeacherLName</td>
+                    <td>@teacher.EmployeeNumber</td>
+                    <td>@teacher.HireDate.Value.ToShortDateString()</td>
+                    <td>$@teacher.Salary</td>
+                    <td><a href="/TeacherPage/Show/@teacher.TeacherId" class="btn btn-primary btn-sm">View</a></td>
                 </tr>
             }
         </tbody>

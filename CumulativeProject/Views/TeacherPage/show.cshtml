@@ -6,10 +6,11 @@
     @if (Model != null)
     {
         <div class="card p-3 shadow-sm">
-            <p><strong>ID:</strong> @Model.id</p>
-            <p><strong>Name:</strong> @Model.name</p>
-            <p><strong>Course:</strong> @Model.course</p>
-            <p><strong>Salary:</strong> <span class="text-success fw-bold">$@Model.salary</span></p>
+            <p><strong>ID:</strong> @Model.TeacherId</p>
+            <p><strong>Full Name:</strong> @Model.TeacherFName @Model.TeacherLName</p>
+            <p><strong>Employee Number:</strong> @Model.EmployeeNumber</p>
+            <p><strong>Hire Date:</strong> @Model.HireDate.Value.ToShortDateString()</p>
+            <p><strong>Salary:</strong> <span class="text-success fw-bold">$@Model.Salary</span></p>
         </div>
     }
     else

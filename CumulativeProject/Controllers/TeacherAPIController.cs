@@ -22,17 +22,19 @@ namespace CumulativeProject.Controllers
 
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT id, name, course, salary FROM teachers";
+            cmd.CommandText = "SELECT teacherid, teacherfname, teacherlname, employeenumber, hiredate, salary FROM teachers";
             MySqlDataReader resultSet = cmd.ExecuteReader();
 
             while (resultSet.Read())
             {
                 teachers.Add(new Teacher
                 {
-                    id = resultSet.GetInt32("id"),
-                    name = resultSet.GetString("name"),
-                    course = resultSet.GetString("course"),
-                    salary = resultSet.GetDecimal("salary")
+                    TeacherId = resultSet.GetInt32("teacherid"),
+                    TeacherFName = resultSet.GetString("teacherfname"),
+                    TeacherLName = resultSet.GetString("teacherlname"),
+                    EmployeeNumber = resultSet.GetString("employeenumber"),
+                    HireDate = resultSet.GetDateTime("hiredate"),
+                    Salary = resultSet.GetDecimal("salary")
                 });
             }
 
@@ -54,7 +56,7 @@ namespace CumulativeProject.Controllers
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT id, name, course, salary FROM teachers WHERE id = @id LIMIT 1";
+            cmd.CommandText = "SELECT teacherid, teacherfname, teacherlname, employeenumber, hiredate, salary FROM teachers WHERE teacherid = @id LIMIT 1";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
 
@@ -64,10 +66,12 @@ namespace CumulativeProject.Controllers
             {
                 teacher = new Teacher
                 {
-                    id = resultSet.GetInt32("id"),
-                    name = resultSet.GetString("name"),
-                    course = resultSet.GetString("course"),
-                    salary = resultSet.GetDecimal("salary")
+                    TeacherId = resultSet.GetInt32("teacherid"),
+                    TeacherFName = resultSet.GetString("teacherfname"),
+                    TeacherLName = resultSet.GetString("teacherlname"),
+                    EmployeeNumber = resultSet.GetString("employeenumber"),
+                    HireDate = resultSet.GetDateTime("hiredate"),
+                    Salary = resultSet.GetDecimal("salary")
                 };
             }
 

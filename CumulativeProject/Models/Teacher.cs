@@ -2,9 +2,11 @@
 {
     public class Teacher
     {
-        public int id { get; set; } 
-        public string name { get; set; }
-        public string course { get; set; }
-        public decimal salary { get; set; }
+        public int TeacherId { get; set; }
+        public string? TeacherFName { get; set; }
+        public string? TeacherLName { get; set; }
+        public string? EmployeeNumber { get; set; }
+        public DateTime? HireDate { get; set; }
+        public decimal? Salary { get; set; }
     }
 }
