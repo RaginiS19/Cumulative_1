@@ -4,12 +4,18 @@ using MySql.Data.MySqlClient;
 
 namespace CumulativeProject.Controllers
 {
+    /// <summary>
+    /// API Controller for managing teacher-related data.
+    /// Provides endpoints for retrieving all teachers or a specific teacher by ID.
+    /// </summary>
     [ApiController]
     [Route("api/TeacherAPI")]
     public class TeacherAPIController : Controller
     {
         private readonly SchoolDbContext _context = new SchoolDbContext();
-
+        /// <summary>
+        /// Retrieves a list of all teachers from the database.
+        /// </summary>
         // GET: api/TeacherAPI/GetAllTeachers
         [HttpGet("GetAllTeachers")]
         public IEnumerable<Teacher> GetAllTeachers()
@@ -43,9 +49,9 @@ namespace CumulativeProject.Controllers
 
             return teachers;
         }
-
-
-
+        /// <summary>
+        /// Retrieves details of a specific teacher by their ID.
+        /// </summary>
         // GET: api/TeacherAPI/GetTeacherById/{id}
         [HttpGet("GetTeacherById/{id}")]
         public Teacher GetTeacherByName(int id)
