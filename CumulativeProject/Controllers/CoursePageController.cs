@@ -6,10 +6,16 @@ using System.Collections.Generic;
 
 namespace CumulativeProject.Controllers
 {
+/// <summary>
+    /// MVC Controller for handling course-related web pages.
+    /// </summary>
     public class CoursePageController : Controller
     {
         private readonly SchoolDbContext _context = new SchoolDbContext();
-
+        /// <summary>
+        /// Displays a list of all courses.
+        /// </summary>
+    
         // GET: /CoursePage/List
         public IActionResult List()
         {
