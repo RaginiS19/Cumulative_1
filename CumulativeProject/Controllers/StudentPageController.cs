@@ -5,10 +5,15 @@ using System.Collections.Generic;
 
 namespace CumulativeProject.Controllers
 {
+    /// <summary>
+    /// Controller responsible for handling student-related web pages.
+    /// </summary>
     public class StudentPageController : Controller
     {
         private readonly SchoolDbContext _context = new SchoolDbContext();
-
+         /// <summary>
+        /// Retrieves a list of all students and displays them in the view.
+        /// </summary>
         // GET: /StudentPage/List
         public IActionResult List()
         {
@@ -38,7 +43,9 @@ namespace CumulativeProject.Controllers
 
             return View(students);
         }
-
+         /// <summary>
+        /// Retrieves details of a specific student by ID and displays them in the view.
+        /// </summary>
         // GET: /StudentPage/Show/{id}
         public IActionResult Show(int id)
         {
