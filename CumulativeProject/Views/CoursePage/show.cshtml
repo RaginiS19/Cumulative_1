@@ -1,0 +1,23 @@
+﻿@model CumulativeProject.Models.Course
+
+<div class="container mt-4">
+    <h2 class="mb-4">Course Details</h2>
+
+    @if (Model != null)
+    {
+        <div class="card p-3 shadow-sm">
+            <p><strong>ID:</strong> @Model.CourseId</p>
+            <p><strong>Course Name:</strong> @Model.CourseName</p>
+            <p><strong>Course Code:</strong> @Model.CourseCode</p>
+            <p><strong>Teacher ID:</strong> @Model.TeacherId</p>
+            <p><strong>Start Date:</strong> @(Model.StartDate?.ToShortDateString())</p>
+            <p><strong>Finish Date:</strong> @(Model.FinishDate?.ToShortDateString())</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">Course not found.</div>
+    }
+
+    <a href="/CoursePage/List" class="btn btn-primary mt-3">Back to List</a>
+</div>

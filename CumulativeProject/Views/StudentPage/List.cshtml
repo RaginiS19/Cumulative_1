@@ -1,0 +1,34 @@
+﻿@model List<CumulativeProject.Models.Student>
+
+<h2 class="mt-4">Students List</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="alert alert-warning">No students found.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Student Number</th>
+                <th>Enrollment Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentId</td>
+                    <td>@student.StudentFName @student.StudentLName</td>
+                    <td>@student.StudentNumber</td>
+                    <td>@(student.EnrolDate?.ToShortDateString())</td>
+                    <td><a href="/StudentPage/Show/@student.StudentId" class="btn btn-primary btn-sm">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

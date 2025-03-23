@@ -1,0 +1,21 @@
+﻿@model CumulativeProject.Models.Student
+
+<div class="container mt-4">
+    <h2 class="mb-4">Student Details</h2>
+
+    @if (Model != null)
+    {
+        <div class="card p-3 shadow-sm">
+            <p><strong>ID:</strong> @Model.StudentId</p>
+            <p><strong>Full Name:</strong> @Model.StudentFName @Model.StudentLName</p>
+            <p><strong>Student Number:</strong> @Model.StudentNumber</p>
+            <p><strong>Enrollment Date:</strong> @(Model.EnrolDate?.ToShortDateString())</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">Student not found.</div>
+    }
+
+    <a href="/StudentPage/List" class="btn btn-primary mt-3">Back to List</a>
+</div>

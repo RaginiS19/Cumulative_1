@@ -1,0 +1,38 @@
+﻿@model List<CumulativeProject.Models.Course>
+
+<h2 class="mt-4">Courses List</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="alert alert-warning">No courses found.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Course Code</th>
+                <th>Teacher ID</th>
+                <th>Start Date</th>
+                <th>Finish Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.CourseId</td>
+                    <td>@course.CourseName</td>
+                    <td>@course.CourseCode</td>
+                    <td>@course.TeacherId</td>
+                    <td>@(course.StartDate?.ToShortDateString())</td>
+                    <td>@(course.FinishDate?.ToShortDateString())</td>
+                    <td><a href="/CoursePage/Show/@course.CourseId" class="btn btn-primary btn-sm">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
