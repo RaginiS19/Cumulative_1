@@ -5,11 +5,17 @@ using System.Collections.Generic;
 
 namespace CumulativeProject.Controllers
 {
+/// <summary>
+    /// API Controller for handling course-related operations.
+    /// </summary>
     [ApiController]
     [Route("api/CourseAPI")]
     public class CourseAPIController : Controller
     {
         private readonly SchoolDbContext _context = new SchoolDbContext();
+         /// <summary>
+        /// Retrieves all courses from the database.
+        /// </summary>
 
         // GET: api/CourseAPI/GetAllCourses
         [HttpGet("GetAllCourses")]
@@ -44,7 +50,13 @@ namespace CumulativeProject.Controllers
             return courses;
         }
 
+        /// <summary>
+        /// Retrieves a specific course by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the course to retrieve.</param>
+        /// <returns>The course with the specified ID, or null if not found.</returns>
         // GET: api/CourseAPI/GetCourseById/{id}
+        
         [HttpGet("GetCourseById/{id}")]
         public Course GetCourseById(int id)
         {
