@@ -4,10 +4,16 @@ using CumulativeProject.Models;
 
 namespace CumulativeProject.Controllers
 {
+    /// <summary>
+    /// MVC Controller for managing teacher-related pages.
+    /// Provides functionality to display a list of teachers and details of a specific teacher.
+    /// </summary>
     public class TeacherPageController : Controller
     {
         private readonly SchoolDbContext _context = new SchoolDbContext();
-
+        /// <summary>
+        /// Retrieves and displays a list of all teachers from the database.
+        /// </summary>
         // GET: /Teacher/List
         public IActionResult List()
         {
@@ -40,7 +46,9 @@ namespace CumulativeProject.Controllers
 
             return View(teachers);
         }
-
+        /// <summary>
+        /// Retrieves and displays details of a specific teacher by ID.
+        /// </summary>
         // GET: /Teacher/Show/{id}
         public IActionResult Show(int id)
         {
